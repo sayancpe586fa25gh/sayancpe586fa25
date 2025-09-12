@@ -86,4 +86,9 @@ def rref(matrix: torch.Tensor) -> torch.Tensor:
                     result = rowreplacement(result,row,current_row,1.0,-scale)
             current_row += 1
         return result
-
+def main():
+    print(rref(torch.Tensor([[1, 2, 3],[4,5,6],[7,8,9]])))
+    print(rref(torch.Tensor([[1, 3, 0],[1, 0 ,9],[0, -1,4]])))
+    print(rref(torch.Tensor([[1, 3, 0, 0, 3],[0, 0, 1, 0 ,9],[0,0,0,-1,4]])))
+if __name__ == "__main__":
+    main()
