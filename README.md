@@ -48,3 +48,19 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
         matrix (torch.Tensor): input matrix
     Returns:
         torch.Tensor: Result matrix RREF of input
+
+            function uniform(a: float = 0.0, b: float = 1.0)
+        Returns uniform values between 0 and 1
+        E.G Use uniform(0,1)
+
+            function exponentialdist(lmbd: float)
+        Returns exponential distribution
+    Args:
+        Lambda value for exponential distribution 
+        E.G. Use exponentialdist(lmbd)
+
+            function poissondist(lmbd: float):
+        Returns poisson distribution
+    Args:
+        Lambda value for poisson distribution
+        E.G. Use poissondist(lmbd)
