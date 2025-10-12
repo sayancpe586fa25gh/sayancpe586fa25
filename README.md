@@ -64,3 +64,5 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
     Args:
         Lambda value for poisson distribution
         E.G. Use poissondist(lmbd)
+
+    Added class LinearAlgebra
