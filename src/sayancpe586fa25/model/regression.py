@@ -540,7 +540,7 @@ class CauchyRegression:
         else:
             return y_pred_scaled
 
-    def get_parameters(self):
+    def get_parameters(self, X: np.ndarray, y: np.ndarray):
         if not self.fitted:
             raise ValueError("Model must be fitted before getting parameters.")
         last = self.param_history[-1]
