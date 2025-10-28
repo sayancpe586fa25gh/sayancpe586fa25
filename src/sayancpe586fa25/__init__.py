@@ -1,1 +1,1 @@
-from sayancpe586fa25.model import LinearRegression
+from sayancpe586fa25.model import LinearRegression, CauchyRegression, LogisticRegression
