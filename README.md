@@ -66,3 +66,4 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
         E.G. Use poissondist(lmbd)
 
     Added class LinearRegression, CauchyRegression, LogisticRegression
+    Added class TorchNet
