@@ -1,4 +1,4 @@
-This is a package with two subpackages:
+This is a package with following subpackages:
 
 1. Differential -> function diff to calculate discrete time derivative
   differentialial -> discrete -> diff (x,t) It does discrete time derivative of two vectors (list) x and t and returs a list v
@@ -65,5 +65,23 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
         Lambda value for poisson distribution
         E.G. Use poissondist(lmbd)
 
+3. Subpackage: distribution
+        Class: cvdistribution
+
+4. Subpackage: model
     Added class LinearRegression, CauchyRegression, LogisticRegression
     Added class TorchNet
+
+5. Subpackage: deepl
+    Function: binary_classification
+    Performs binary classification using gradient descent and autograd.
+
+    Args:
+        d (int): number of features
+        n (int): number of samples
+        epochs (int): number of training epochs (default 10000)
+        eta (float): learning rate (default 0.001)
+
+    Returns:
+        W1, W2, W3, W4: trained weight matrices
+        loss_history: list containing loss value at each epoch
