@@ -33,7 +33,12 @@ def binary_classification(d, n, epochs=10000, eta=0.001):
         W.requires_grad_()
 
     loss_history = []
-
+    weight_history = {
+        "W1": [],
+        "W2": [],
+        "W3": [],
+        "W4": []
+    }
     # Training loop
     for _ in range(epochs):
         A1 = torch.sigmoid(X @ W1)
@@ -54,6 +59,9 @@ def binary_classification(d, n, epochs=10000, eta=0.001):
             for W in [W1, W2, W3, W4]:
                 W -= eta * W.grad
                 W.grad.zero_()
-
-    return W1, W2, W3, W4, loss_history
+        weight_history["W1"].append(W1.detach().clone())
+        weight_history["W2"].append(W2.detach().clone())
+        weight_history["W3"].append(W3.detach().clone())
+        weight_history["W4"].append(W4.detach().clone())
+    return W1, W2, W3, W4, loss_history, weight_history
 

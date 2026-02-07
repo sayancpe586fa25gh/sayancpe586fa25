@@ -85,3 +85,30 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
     Returns:
         W1, W2, W3, W4: trained weight matrices
         loss_history: list containing loss value at each epoch
+    
+    Class: SimpleNN usage: deepl.SimpleNN(in_features=num_features, num_classes=num_classes)
+           ClassTrainer usage: deepl.ClassTrainer(
+                                X_train=X_train,
+                                Y_train=y_train,
+                                model=training model,
+                                eta=learning_rate,
+                                epochs=epochs,
+                                loss_fn=loss_function,
+                                optimizer_cls=optimizer
+                                )
+
+6. Subpackage: animation
+    Class: WeightMatrixAnime, LargeWeightMatrixAnime
+    Function: animate_weight_heatmap (uses class WeightMatrixAnime), animate_large_heatmap (uses class LargeWeightMatrixAnime)
+        animation.animate_large_heatmap(
+            3d_torch_tensor),
+            dt=0.04,
+            file_name="fileName",
+            title_str="Title String"
+            )
+## HW02Q7
+  Here we are doing binary classification using deepl.binary_classification and creating an animation of how the weight matrices evolve per epochs using animation.animate_large_heatmap. Example implementation provided in scripts/binaryclassification_animate_impl.py. The generated media mp4 for every weight matrix will be present inside media/ directory. A wrapper to run this is provided in scripts/binaryclassification_animate_impl.sh. The whole wrapper is also automated by scripts/run_binary_training.sh and logs are saved to scripts/training_log.out. 
+    
+## HW02Q8
+  Here we doing multiclass classification with android malware dataset from https://github.com/rahulbhadani/CPE487587_
+SP26/releases/download/android_malware/Android_Malware.csv. This dataset can be downloaded using scripts/malwaredatadownload.sh. The complete implementation is provided in scripts/multiclass_impl.py. This implementation is using deepl.SimpleNN model and deepl.ClassTrainer to achieve this. After each run performance metrics are saved to result/ directory in csv format. Another script, scripts/multiclass_eval.py then takes all the .csv from the result/ directory and generate box plots for all metrics and saves it to result/ directory. An automated implementation of the whole scheme is presented in scripts/multiclass_impl.sh. A wrapper for the whole pipeline presented in scripts/run_multiclass.sh and logs are saved to scripts/multiclass_log.out.   
