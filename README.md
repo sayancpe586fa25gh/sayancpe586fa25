@@ -96,6 +96,16 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
                                 loss_fn=loss_function,
                                 optimizer_cls=optimizer
                                 )
+    Class: ImageNetCNN Usage: deepl.ImageNetCNN(num_classes=num_classes)
+           CNNTrainer Usage: deepl.CNNTrainer(
+                                train_loader=train_loader,
+                                val_loader=val_loader,
+                                model=model,
+                                epochs=args.epochs
+                            )
+
+           ACCDataset Usage: deepl.ACCDataset(args.data_path, k=50)
+           ACCNet Usage: deepl.ACCNet().to(device)
 
 6. Subpackage: animation
     Class: WeightMatrixAnime, LargeWeightMatrixAnime
@@ -111,4 +121,10 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
     
 ## HW02Q8
   Here we doing multiclass classification with android malware dataset from https://github.com/rahulbhadani/CPE487587_
-SP26/releases/download/android_malware/Android_Malware.csv. This dataset can be downloaded using scripts/malwaredatadownload.sh. The complete implementation is provided in scripts/multiclass_impl.py. This implementation is using deepl.SimpleNN model and deepl.ClassTrainer to achieve this. After each run performance metrics are saved to result/ directory in csv format. Another script, scripts/multiclass_eval.py then takes all the .csv from the result/ directory and generate box plots for all metrics and saves it to result/ directory. An automated implementation of the whole scheme is presented in scripts/multiclass_impl.sh. A wrapper for the whole pipeline presented in scripts/run_multiclass.sh and logs are saved to scripts/multiclass_log.out.   
+SP26/releases/download/android_malware/Android_Malware.csv. This dataset can be downloaded using scripts/malwaredatadownload.sh. The complete implementation is provided in scripts/multiclass_impl.py. This implementation is using deepl.SimpleNN model and deepl.ClassTrainer to achieve this. After each run performance metrics are saved to result/ directory in csv format. Another script, scripts/multiclass_eval.py then takes all the .csv from the result/ directory and generate box plots for all metrics and saves it to result/ directory. An automated implementation of the whole scheme is presented in scripts/multiclass_impl.sh. A wrapper for the whole pipeline presented in scripts/run_multiclass.sh and logs are saved to scripts/multiclass_log.out.
+
+## HW03Q06
+ We are doing CNN training and validation using imageNet data. Model used: deepl.ImageNetCNN and training model used deepl.CNNTrainer. An implementation of the pipeline is provided in scripts/imagenet_impl.py and inference is provided in scripts/imagenet_inference.py. A wrapper is provided in scripts/imagenet_impl.sh and final calling script is provided in scripts/run_imagenet.sh.
+
+## HW03Q07
+ We are using cruise control data to classify if ACC (Adaptive Cruise Control) is ON or OFF from ACCDataset using only velocity based features. The data is loaded using deepl.ACCDataset and model used is deepl.ACCNet. An implementation is provided in scripts/acc_classifier_impl.py. A wrapper is provided in scripts/acc_classifier_impl.sh and a calling script in scripts/run_acc_classifier.sh.    
