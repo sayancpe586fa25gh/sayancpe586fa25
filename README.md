@@ -106,8 +106,17 @@ function rowswap(matrix: torch.Tensor, i: int, j: int) -> torch.Tensor
 
            ACCDataset Usage: deepl.ACCDataset(args.data_path, k=50)
            ACCNet Usage: deepl.ACCNet().to(device)
-
-6. Subpackage: animation
+     Class: VAE, GAN, DiffusionModel, GenModelTrainer
+            GenModelTrainer usage: GenModelTrainer(
+                                          model=model,
+                                          dataloader=train_loader,
+                                          device=device,
+                                          save_every=args.save_every,
+                                          onnx_dir=args.onnx_dir
+                              )
+            Here, model can be any of VAE (Variational Auto Encoder), GAN (Generative Adverserial Network) and DiffusionModel classes.
+             
+7. Subpackage: animation
     Class: WeightMatrixAnime, LargeWeightMatrixAnime
     Function: animate_weight_heatmap (uses class WeightMatrixAnime), animate_large_heatmap (uses class LargeWeightMatrixAnime)
         animation.animate_large_heatmap(
@@ -127,4 +136,8 @@ SP26/releases/download/android_malware/Android_Malware.csv. This dataset can be 
  We are doing CNN training and validation using imageNet data. Model used: deepl.ImageNetCNN and training model used deepl.CNNTrainer. An implementation of the pipeline is provided in scripts/imagenet_impl.py and inference is provided in scripts/imagenet_inference.py. A wrapper is provided in scripts/imagenet_impl.sh and final calling script is provided in scripts/run_imagenet.sh.
 
 ## HW03Q07
- We are using cruise control data to classify if ACC (Adaptive Cruise Control) is ON or OFF from ACCDataset using only velocity based features. The data is loaded using deepl.ACCDataset and model used is deepl.ACCNet. An implementation is provided in scripts/acc_classifier_impl.py. A wrapper is provided in scripts/acc_classifier_impl.sh and a calling script in scripts/run_acc_classifier.sh.    
+ We are using cruise control data to classify if ACC (Adaptive Cruise Control) is ON or OFF from ACCDataset using only velocity based features. The data is loaded using deepl.ACCDataset and model used is deepl.ACCNet. An implementation is provided in scripts/acc_classifier_impl.py. A wrapper is provided in scripts/acc_classifier_impl.sh and a calling script in scripts/run_acc_classifier.sh. 
+
+## HW04
+   We are using CelebA dataset to train the VAE (Variational Auto Encoder), GAN (Generative Adverserial Network) and DiffusionModel model classes. All models are trained using GenModelTrainer. An implementation is provided in scripts/gen_model_impl.py and wrapper is provided in scripts/gen_model_impl.sh. Models are saved in scripts/gen_models_v2 directory. Inference is implemented in scripts/gen_model_inference.py and wrapper for that in scripts/gen_model_inference.sh. During inference, 25 samples are saved in scripts/<model>_samples.png and images are evaluated using 5 different metrics. The result is provided scripts/metrics_comparison.png.    
+ 
